@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/dos', function (req, res) {
-  res.render('hola2', { texto: 'esto es un texto dentro de la plantilla hola.hbs'});
+  res.render('hola2', { texto: 'esto es un texto dentro de la plantilla hola.hbs', perro: 'Coopercillo Er Tocinillo', perro2: 'Winnie Asquerosa', perro3: 'Bichito Feroz', perro4: 'Evey Mala Madre', pajaro: 'Urraquilla'});
 });
 
 app.get('/dos/tres/:id', function (req, res) {
