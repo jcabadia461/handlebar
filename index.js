@@ -12,22 +12,29 @@ const hbs = exphbs.create({
   // partialsDir: join(app.get("views"), "partials"),
   extname: ".hbs",
 });
+
 app.engine(".hbs", hbs.engine);
 app.set("view engine", ".hbs");
 
 // Define una ruta que renderiza una vista
 app.get('/', function (req, res) {
-    res.render('index', { title: 'Este es el título de mi página de prueba', name: 'Juan Carlos' });
+    const a =
+    res.render('index', { title: 'Este es el título de mi página de prueba', name: 'Juan Carlos', upBody: 'Hola buenas tardes'});
+
 });
 
+
 app.get('/dos', function (req, res) {
-  res.render('hola2', { texto: 'esto es un texto dentro de la plantilla hola.hbs', perro: 'Coopercillo Er Tocinillo', perro2: 'Winnie Asquerosa', perro3: 'Bichito Feroz', perro4: 'Evey Mala Madre', pajaro: 'Urraquilla'});
+  // res.render('hola2', { texto: 'esto es un texto dentro de la plantilla hola.hbs', perro: 'Coopercillo Er Tocinillo', perro2: 'Winnie Asquerosa', perro3: 'Bichito Feroz', perro4: 'Evey Mala Madre', pajaro: 'Urraquilla', });
+  res.render('hola2', { texto: 'esto es un texto dentro de la plantilla hola.hbs', listado: []});
 });
 
 app.get('/dos/tres/:id', function (req, res) {
   const { id } = req.params;
   res.render('hola', { texto: 'esto es un texto dentro de la plantilla hola.hbs', var2: `el parámetro es ${id}`});
 });
+
+
 
 // Inicia el servidor
 app.listen(4000, function () {
